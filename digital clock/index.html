@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #digital-clock {
+            font-size: 36px;
+            font-family: "Arial", sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="digital-clock"></div>
+
+    <script>
+        // Function to update the digital clock
+        function updateDigitalClock() {
+            const digitalClock = document.getElementById("digital-clock");
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            digitalClock.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // Update the clock immediately and then every 1000 milliseconds (1 second)
+        updateDigitalClock();
+        setInterval(updateDigitalClock, 1000);
+    </script>
+</body>
+</html>

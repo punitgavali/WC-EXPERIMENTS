@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.0",
+    "express": "^4.18.2",
+    "stream-browserify": "^3.0.0",
+    "util": "^0.12.5"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "login-form",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPLE CALCULATOR</title>
+</head>
+<body>
+    <h3>Simple Calculator</h3>
+   <div> 
+    <form>
+        <label for="num1">ENTER 1ST NUMBER :</label>
+        <input id="num1" type="number" name="num1"  required>
+        <br><br>
+        <label for="num2">ENTER 2ND NUMBER :</label>
+        <input id="num2" type="number" name="num2"  required>
+        <br><br>
+         <input type="button" value="Multiply" onclick= "multiplynumber()" >
+         <input type="button" value="Division" onclick= "dividenumber()" >
+        
+        <p id="result"></p>
+    </form>
+    </div>
+    <script>
+        
+        function multiplynumber(){
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var num2 = parseFloat(document.getElementById("num2").value);
+        var result = num1*num2
+        document.getElementById("result").textContent = "Result:" + result;
+        }
+         
+        function dividenumber(){
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            if(num2==0)
+            {
+                document.getElementById("result").textContent = "cannot be divided";  
+            }
+            else{
+                var result = num1 / num2
+                document.getElementById("result").textContent = "Result:" + result; 
+            }
+            }
+
+
+    </script>
+</body>
+</html>

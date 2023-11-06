@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>FORM VALIDATION</title> 
+    
+    <style>
+        *{
+           padding:0;
+           margin:0;
+           
+        }
+        body {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Make the body at least as tall as the viewport */
+            margin: 0; /* Remove default body margin */
+            
+        }
+        .master
+        {
+           height: 700px;
+           width:500px;
+           background-image: url('images.jpeg');
+           background-size: 100% 100%;
+           overflow: scroll;
+           border-radius: 5px;
+           text-align: center;
+          
+        }
+        .parent
+        {
+           text-decoration: none;
+           font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+           font-style: italic;
+           color: red;
+        }
+         
+    
+        #child1{
+    
+            padding : 5px;
+            margin: 10px;
+        }
+        #child2{
+    
+            padding : 5px;
+            margin: 10px;
+        }
+        #child3{
+    
+            padding : 5px;
+            margin: 10px;
+        }
+        #child4{
+    
+            padding : 5px;
+            margin: 10px;
+        }
+        #child5{
+    
+            padding : 5px;
+            margin: 10px;
+        }
+        #child5{
+    
+            padding : 5px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #child5:hover{
+            background-color: blue;
+        }
+        #child5:active{
+            background-color:red;
+        }
+        #child6{
+    
+            padding : 5px;
+            margin: 10px;
+        }
+        #child7{
+    
+            padding : 5px;
+            margin: 10px;
+        }
+        #child8{
+    
+            padding : 5px;
+            margin: 10px;
+        }
+       
+        </style>
+    </head>
+        
+    <body>
+        <div class="master">
+        <div class="parent"><h3>LOGIN FORM :</h3></div><br>
+        <form onsubmit="return validateForm()">
+        <label for="username">USERNAME :</label>
+        <input id="child1" type="text" name="username" placeholder="enter your username" required>
+        <br><br>
+        <label for="password">PASSWORD :</label>
+        <input id="child2" type="password" name="password" placeholder="enter your password" required>
+        <br><br>
+        <label for="confirmPassword">CONFIRM PASSWORD :</label>
+        <input id="child8" type="password" name="confirmPassword" placeholder="enter your confirmPassword" required>
+        <br><br>
+        <label for="email">EMAIL-ID :</label>
+        <input id="child3"  type="email" name="email" placeholder="enter your email-id" required>
+        <br><br>
+        <label for="date">DATE OF BIRTH :</label>
+        <input id="child6"  type="date" name="dob" placeholder="enter date of birth">
+        <br><br>
+        <label for="age">AGE :</label>
+        <input id="child7"  type="number" name="age" placeholder="enter your age" required>
+        <br><br>
+        <p>Comment :</p>
+        <textarea name="description" id="" cols="30" rows="10"></textarea>
+        <br><br>
+        <select name="" id="">
+            <option>Country :</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+            <option value="INDIA">INDIA</option>
+        </select>
+        <br><br>
+        <p>Gender</p>
+        <input type="radio" name="gender">MALE
+        <input type="radio" name="gender">FEMALE
+        <input type="radio" name="gender">OTHER
+        <br><br>
+        <p>Interests</p>
+        <input type="checkbox"> SPORTS
+        <input type="checkbox"> MUSIC
+        <input type="checkbox"> READING
+        <br><br>
+        <input id="child5" type="submit" value="Submit">
+         </form>
+         </div>
+
+         <script>
+            function validateForm() {
+                
+                var username = document.getElementById("child1").value;
+                var email = document.getElementById("child3").value;
+                var password = document.getElementById("child2").value;
+                var confirmPassword = document.getElementById("child8").value;
+                var age = document.getElementById("child7").value;
+            
+                var emailRegex = /^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+                 
+                
+                var errors = [];
+            
+                
+                if (username.trim() === "") {
+                    errors.push("Name is required.");
+                }
+            
+                
+                if (!emailRegex.test(email)) {
+                    errors.push("Invalid email address.");
+                }
+            
+                
+                if (password.length < 8) {
+                    errors.push("Password must be at least 8 characters long.");
+                }
+            
+                
+                if (password !== confirmPassword) {
+                    errors.push("Password and Confirm Password must match.");
+                }
+            
+            
+                if (isNaN(age) || age < 18) {
+                    errors.push("Age must be a number and at least 18.");
+                }
+            
+                if (errors.length > 0) 
+                {
+                    var errorMessage = errors.join("\n");
+                    alert(errorMessage);
+                    return false; 
+                } else {
+                    return true; 
+                }
+            }
+
+            window.onload = function() {
+                validateForm();
+            };
+        </script>
+    </body>
+</html>
+
